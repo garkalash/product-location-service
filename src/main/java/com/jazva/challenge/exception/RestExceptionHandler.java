@@ -14,14 +14,8 @@ import javax.validation.ConstraintViolationException;
 
 @ControllerAdvice
 public class RestExceptionHandler extends ResponseEntityExceptionHandler {
-    @ExceptionHandler(value  = { InvalidQuantityException.class })
+    @ExceptionHandler(value  = { InvalidQuantityException.class, ConstraintViolationException.class })
     protected ResponseEntity<Object> handleInvalidQuantityArgument(RuntimeException ex, WebRequest request) {
-        return handleExceptionInternal(ex, ex.getMessage(),
-                new HttpHeaders(), HttpStatus.BAD_REQUEST, request);
-    }
-
-    @ExceptionHandler(value  = { ConstraintViolationException.class })
-    protected ResponseEntity<Object> handleConstantViolentArgument(RuntimeException ex, WebRequest request) {
         return handleExceptionInternal(ex, ex.getMessage(),
                 new HttpHeaders(), HttpStatus.BAD_REQUEST, request);
     }
