@@ -1,0 +1,5 @@
+1 TV
+2 Cell phone
+3 earphone
+4 USB cable
+5 Player
